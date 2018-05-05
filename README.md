@@ -20,11 +20,11 @@ python mhd2png.py \
 # convert the png file to the raw file(bit_depth can be chosen between "uint16" and "uint8")
 python png2raw.py \
   --input_dir /dir/to/your/png \
-  --bit_depth ${bit_depth} \
+  --bit_depth [bit_depth] \
   --output /path/to/your/raw
 # convert the text file to the json file
 python txt2json.py \
   --txt_path /path/to/your/txt \
-  --num_cls ${class_count} \
+  --num_cls [class_count] \
   --json_path /path/to/your/json
 ```
