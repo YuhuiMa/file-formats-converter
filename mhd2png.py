@@ -11,12 +11,13 @@ parser.add_argument("--png_dir", help="path to folder saving png files")
 a = parser.parse_args()
 
 image = sitk.ReadImage(a.mhd_file)
-image_array = sitk.GetArrayFromImage(image)
+image_array = sitk.GetArrayFromImage(image) # get the data
 
 if image_array.dtype == 'uint16':
     image_array = image_array/65535.0*255
     image_array = image_array.astype(np.uint8)
 
+# save the png files
 for index in range(image_array.shape[0]):
     img = Image.fromarray(image_array[index,:,:]).convert('L')
     img.save(a.png_dir + str(index+1) + ".png",'png')
